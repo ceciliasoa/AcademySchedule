@@ -1,5 +1,5 @@
 import Foundation
-
+//dados do json decodificados em objetos
 struct Schedule: Codable {
 	let months: [Month]
 }
@@ -13,7 +13,7 @@ struct Event: Codable {
 	let eventName: String
 	let eventDays: [Int]
 }
-
+//json
 let jsonString = """
 {"months":[
 	{"name":"jan",
@@ -49,8 +49,11 @@ let jsonString = """
 	]
 }
 """
+//ler o json e retorna como objeto para a stuct Schedule
 func readJson() -> Schedule {
+	
 	let jsonData = jsonString.data(using: .utf8)!
+	//decodifica o json
 	let schedule = try! JSONDecoder().decode(Schedule.self, from: jsonData)
 	return schedule
 }
