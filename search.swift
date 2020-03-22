@@ -2,12 +2,12 @@
 func readDate() -> [String:String]? {
 	print("Insira a data para consultar o calendario (DD/MM): ")
 	guard let date = readLine() else { return nil }
-
+	//divide a string em uma lista de string a partir da /
 	let splitedDate = date.split{$0 == "/"}
-
+	//atribui para dia e mes
 	let day: String = String(splitedDate[0])
 	var month: String = String(splitedDate[1])
-
+	
 	switch month {
 		case "01": month = "jan"
 		case "02": month = "feb"
